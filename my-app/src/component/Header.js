@@ -13,7 +13,7 @@ export default function Header() {
           </Link>
           <Link className="nav-link" to="/calendar">
             <FontAwesomeIcon icon={faCalendar} className="mr-2" />
-            Calendar
+            My Calendar
           </Link>
           <Link className="nav-link ml-auto" to="/about">
             About

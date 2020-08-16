@@ -10,8 +10,8 @@ import 'rsuite/lib/styles/index.less';
 import {useState} from 'react';
 import './time.css'
 import {Slider} from '@material-ui/core'
-import Button from '@material-ui/core/Button';
-
+import {Button} from '@material-ui/core';
+import {Link} from 'react-router-dom'
 function TimeRange(props){
     
     const {selectedRange, handleRange} = props;
@@ -75,21 +75,32 @@ function TimeRange(props){
         width: 32,
         height: 22
       };
+    
+    const handleClick = (event) => {
+        console.log("You clicked on", this.props.text) //functions as expected!
+     }
     return (
-        <div className="container">
-                <div className="mt-5"> 
-                    <Slider
-                        value={selectedRange}
-                        onChange={handleRange}
-                        min={0}
-                        max={24}
-                        valueLabelDisplay="auto"
-                        valueLabelFormat={labelFormat}
-                        marks={marks}
-                    />
-
+        <div className="container d-flex flex-column">
+                <h5>When do you want to plan your time? 
+                    <FontAwesomeIcon icon={faClock} className="mr-5" /> 
+                    Time Selected: {labelFormat(selectedRange[0])} - {labelFormat(selectedRange[1])}
+                </h5>
+                <div className="mt-5">     
+                <Slider
+                    value={selectedRange}
+                    onChange={handleRange}
+                    min={0}
+                    max={24}
+                    valueLabelDisplay="auto"
+                    valueLabelFormat={labelFormat}
+                    marks={marks}
+                />
                 </div>
-            <NextButton text={'Next'}/>   
+                <Link to="/calendar" className="center mt-5 ml-auto">
+                    <Button variant="contained" color="primary" >Next</Button>
+                </Link>
+
+         
         </div>
     )
 //            <h5>When do you want to plan your time? <FontAwesomeIcon icon={faClock} className="mr-5" /> Time: {labelFormat(selectedRange[0])} - {labelFormat(selectedRange[1])}</h5>
@@ -121,22 +132,6 @@ return (
 
 
 }
-
-
-class NextButton extends Component {
-    //define event callback as a public class field (using an arrow function)
-    handleClick = (event) => {
-       console.log("You clicked on", this.props.text) //functions as expected!
-    }
-  
-    render() {
-      return (<div>
-      <Button variant="contained" color="primary" className="center" onClick={this.handleClick}>{this.props.text}</Button>
-        </div>
-      )
-      
-    };
-  }
 
 export default TimeRange;
 
