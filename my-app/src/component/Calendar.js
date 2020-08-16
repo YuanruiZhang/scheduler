@@ -32,16 +32,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export const JupiterListItemStyle = (props) => {
-  const range = props.selectedRange;
-  const classes = useJupiterListItemStyles();
-  for (let i = range[0]; i < range.length; i++) {
-    return (
-      <ListItem classes={classes} component="div">
-        {i}
-      </ListItem>
-    )
-  }
+
 
 
 /*
@@ -60,4 +51,48 @@ return (
   );
 */
 
-};
+const JupiterListItemStyle = props => {
+  const range = props.selectedRange;
+  const classes = useJupiterListItemStyles();
+  console.log(props)
+  const timeFormat = value => {
+    if (value == 0 || value == 24) {
+      return 12 + " AM";
+    }
+    if (value == 12) {
+      return 12 + " PM";
+    }
+
+    return value > 12 ? value - 12 + " PM" : value + " AM";
+  };
+
+  const array = []
+  for (let i = range[0]; i <= range[range.length - 1]; i++) {
+    array.push(<ListItem classes={classes} component="div" key={i}> {timeFormat(i)}</ListItem>);
+  }
+  console.log(array);
+  return array;
+
+}
+
+export default class Calendar extends React.Component {
+  render() {
+    
+    const range = this.props.selectedRange;
+    console.log(range);
+    return (
+        <div className="container">
+            <FloatingActionButtons />
+            <div className="row"> 
+              <div className="col-4">
+                <JupiterListItemStyle selectedRange={range} />
+              </div>
+              
+            </div>
+            
+        </div>
+
+    )
+  }
+}
+

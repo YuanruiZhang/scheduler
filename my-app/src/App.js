@@ -7,23 +7,23 @@ import Header from './component/Header'
 import Info from './component/Info';
 import TimeRange from './component/Time'
 import Activity from './component/Activity';
-import {FloatingActionButtons,JupiterListItemStyle} from "./component/Calendar";
+import Calendar from "./component/Calendar";
 
 class App extends Component {
   state = {
-    selectedRange: [6,18]
+    selectedRange: [0,24]
   }
 
-  handleRange = values => {
+  handleRange = (event,values) => {
     this.setState({selectedRange: values});
   }
 
   render() {
-    console.log(this.state.selectedRange)
     return (
       <>
-        <Header />
+        
         <BrowserRouter>
+          <Header />
           <Switch>
             {/* if currentUrl == '/time', render <TimeRange> */}
             <Route exact path="/" render={props => <TimeRange handleRange={this.handleRange} selectedRange={this.state.selectedRange}/>} />
@@ -36,12 +36,7 @@ class App extends Component {
             {/* if currentUrl == '/activity', render <Calendar> */}
             <Route
               path="/calendar"
-              render={props => 
-                <div>
-                 <FloatingActionButtons />
-                 <JupiterListItemStyle selectedRange={this.state.selectedRange}/>
-                </div>
-              }/>
+              render={props => <Calendar selectedRange={this.state.selectedRange}/>}/>
           </Switch>
         </BrowserRouter>
       </>

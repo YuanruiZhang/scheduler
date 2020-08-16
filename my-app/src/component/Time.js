@@ -15,7 +15,6 @@ import Button from '@material-ui/core/Button';
 function TimeRange(props){
     
     const {selectedRange, handleRange} = props;
-    console.log(selectedRange);
     
     const marks = [
         {
