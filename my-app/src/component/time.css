@@ -1,0 +1,17 @@
+
+  .slider-handle{
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  .slider-handle::before{
+    border-radius: 0 !important;
+    height: 1em;
+  }
+
+.center{
+    text-align: center;
+}
+
+.PrivateValueLabel-circle-4{
+  text-align: center
+}

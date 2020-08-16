@@ -1,0 +1,16 @@
+.info p {
+    margin:  0.5 rem;
+}
+
+
+.info h3 {
+  margin: 0.5rem 0;
+}
+
+.info ol {
+  margin: 0.5rem;
+}
+
+.info li {
+  margin: 1rem 0;
+}

@@ -1,0 +1,11 @@
+button.MuiFab-primary {
+    position: relative;
+    margin-left: 50%;
+    color: #1675E0;
+    background-color: white;
+}
+
+button.MuiFab-root:hover {
+    background-color: lightgray;
+}
+
