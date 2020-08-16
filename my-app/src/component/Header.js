@@ -8,8 +8,8 @@ export default function Header() {
       <header className="shadow-sm px-2 py-2 mb-4 d-flex justify-content-center">
         <nav className="nav col-10">
           <Link className="nav-link" to="/">
-          <FontAwesomeIcon icon={faHammer} className="mr-2" />
-            Schedule Builder
+            <FontAwesomeIcon icon={faHammer} className="mr-2" />
+            Schedule Builder © Martin Zhang, Sailesh Sivakuamr, Yodahe Yeshitela, Daniel Lin
           </Link>
           <Link className="nav-link" to="/calendar">
             <FontAwesomeIcon icon={faCalendar} className="mr-2" />
@@ -18,9 +18,7 @@ export default function Header() {
           <Link className="nav-link ml-auto" to="/about">
             About
           </Link>
-          
         </nav>
-        
       </header>
     );
 }

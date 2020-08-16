@@ -8,7 +8,7 @@ import Info from './component/Info';
 import TimeRange from './component/Time'
 import Activity from './component/Activity';
 import Calendar from "./component/Calendar";
-
+import Footer from './component/Footer';
 class App extends Component {
   state = {
     selectedRange: [0,24]
@@ -21,10 +21,10 @@ class App extends Component {
   render() {
     return (
       <>
-        
         <BrowserRouter>
           <Header />
-          <Switch>
+          <div style={{minHeight: '85vh'}}>
+            <Switch>
             {/* if currentUrl == '/time', render <TimeRange> */}
             <Route exact path="/" render={props => <TimeRange handleRange={this.handleRange} selectedRange={this.state.selectedRange}/>} />
 
@@ -38,6 +38,9 @@ class App extends Component {
               path="/calendar"
               render={props => <Calendar selectedRange={this.state.selectedRange}/>}/>
           </Switch>
+          </div>
+          
+          <Footer/>
         </BrowserRouter>
       </>
     );
